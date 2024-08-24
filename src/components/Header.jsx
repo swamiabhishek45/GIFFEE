@@ -18,11 +18,13 @@ const Header = () => {
                 </Link>
 
                 <div className="flex items-center gap-4 text-lg font-bold">
+                    
                     {/* render categories  */}
                     <Link className="hidden px-4 py-1 border-b-4 hover:gradient lg:block">
                         Reactions
                     </Link>
 
+                    {/* Dots Vertical Icon */}
                     <button onClick={() => setShowCategories(!showCategories)}>
                         <HiDotsVertical
                             size={35}
@@ -32,10 +34,12 @@ const Header = () => {
                         />
                     </button>
 
+                    {/* Favourite Button  */}
                     <div className="px-6 pt-1 bg-gray-700 rounded cursor-pointer h-9">
                         <Link to="/favourites">Favourite GIFs</Link>
                     </div>
 
+                    {/* Minibar Icon  */}
                     <button>
                         <HiMiniBars3BottomRight
                             className="block text-sky-400 lg:hidden"

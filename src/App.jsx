@@ -6,6 +6,7 @@ import Category from "./pages/Category";
 import Favourite from "./pages/Favourite";
 import Search from "./pages/Search";
 import SingleGIF from "./pages/SingleGIF";
+import GifProvider from "./context/gif-context";
 
 const router = createBrowserRouter([
     {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-    return <RouterProvider router={router} />;
+    return (
+        <GifProvider>
+            <RouterProvider router={router} />
+        </GifProvider>
+    );
 }
 
 export default App;
