@@ -6,7 +6,7 @@ import Category from "./pages/Category";
 import Favourite from "./pages/Favourite";
 import Search from "./pages/Search";
 import SingleGIF from "./pages/SingleGIF";
-import GifProvider from "./context/gif-context";
+import {GifProvider} from "./context/gif-context";
 
 const router = createBrowserRouter([
     {

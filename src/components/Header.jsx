@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiDotsVertical } from "react-icons/hi";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
+import { useGifContext } from "../context/gif-context";
 
 const Header = () => {
     const [categories, setCategories] = useState([]);
     const [showCategories, setShowCategories] = useState(false);
+
+    const { gif, filter, setFilter, favorites } = useGifContext();
+
+    const fetchGifCategories = async () => {
+        const { data } = await gif.categories();
+        setCategories(data);
+    };
+
+    useEffect(() => {
+        fetchGifCategories();
+    }, []);
 
     return (
         <nav>
@@ -18,11 +30,18 @@ const Header = () => {
                 </Link>
 
                 <div className="flex items-center gap-4 text-lg font-bold">
-                    
                     {/* render categories  */}
-                    <Link className="hidden px-4 py-1 border-b-4 hover:gradient lg:block">
-                        Reactions
-                    </Link>
+                    {categories?.slice(0, 5)?.map((category) => {
+                        return (
+                            <Link
+                                key={category.name}
+                                to={`/${category.name_encoded}`}
+                                className="hidden px-4 py-1 border-b-4 hover:gradient lg:block"
+                            >
+                                {category.name}
+                            </Link>
+                        );
+                    })}
 
                     {/* Dots Vertical Icon */}
                     <button onClick={() => setShowCategories(!showCategories)}>
@@ -34,10 +53,43 @@ const Header = () => {
                         />
                     </button>
 
+                    {showCategories && (
+                        <div className="absolute right-0 z-20 w-full px-10 top-14 py-9 gradient">
+                            <span className="text-3xl font-extrabold">
+                                Categories
+                            </span>
+                            <hr className="my-5 bg-gray-100 opacity-50" />
+                            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+                                {categories.map((category) => {
+                                    return (
+                                        <Link
+                                            key={category.name}
+                                            to={`/${category.name_encoded}`}
+                                            className=" p-2 font-bold hover:bg-gray-700 rounded-md"
+                                        >
+                                            {category.name}
+                                        </Link>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    )}
+
+                    
+
                     {/* Favourite Button  */}
-                    <div className="px-6 pt-1 bg-gray-700 rounded cursor-pointer h-9">
-                        <Link to="/favourites">Favourite GIFs</Link>
-                    </div>
+                    {favorites.length >= 0 && (
+                        <div className="flex">
+                            <div className="px-6 pt-1 bg-gray-700 rounded-l cursor-pointer h-9">
+                                <Link to="/favourites">Favourite GIFs</Link>
+                            </div>
+                            <img
+                                src="https://media.giphy.com/avatars/default2/80h.gif"
+                                alt=""
+                                className="w-8 rounded-r"
+                            />
+                        </div>
+                    )}
 
                     {/* Minibar Icon  */}
                     <button>
@@ -47,16 +99,6 @@ const Header = () => {
                         />
                     </button>
                 </div>
-
-                {showCategories && (
-                    <div className="absolute right-0 z-20 w-full px-10 top-14 py-9 gradient">
-                        <span>Categories</span>
-                        <hr />
-                        <div>
-                            <Link className="font-bold">Reactions</Link>
-                        </div>
-                    </div>
-                )}
             </div>
         </nav>
     );
@@ -65,3 +107,4 @@ const Header = () => {
 export default Header;
 
 // https://giphy.com/static/img/artist-banner.webp
+// https://media.giphy.com/avatars/default2/80h.gif
