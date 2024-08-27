@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { HiDotsVertical } from "react-icons/hi";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { useGifContext } from "../context/gif-context";
+import Search from "./Search";
 
 const Header = () => {
     const [categories, setCategories] = useState([]);
     const [showCategories, setShowCategories] = useState(false);
 
-    const { gif, filter, setFilter, favorites } = useGifContext();
+    const { gif, favorites } = useGifContext();
 
     const fetchGifCategories = async () => {
         const { data } = await gif.categories();
@@ -23,9 +24,9 @@ const Header = () => {
         <nav>
             <div className="relative flex items-center justify-between gap-4 mb-2">
                 <Link className="flex gap-2" to="/">
-                    <img src="./logo.svg" className="w-8" alt="" />
-                    <h1 className="text-5xl font-bold tracking-tight cursor-pointer">
-                        GIFEE
+                    <img src="./logo.svg" className="w-6 sm:w-8" alt="" />
+                    <h1 className="text-3xl sm:text-5xl font-bold tracking-tight cursor-pointer">
+                        GIPHY
                     </h1>
                 </Link>
 
@@ -75,31 +76,34 @@ const Header = () => {
                         </div>
                     )}
 
-                    
-
                     {/* Favourite Button  */}
                     {favorites.length >= 0 && (
                         <div className="flex">
-                            <div className="px-6 pt-1 bg-gray-700 rounded-l cursor-pointer h-9">
-                                <Link to="/favourites">Favourite GIFs</Link>
-                            </div>
                             <img
                                 src="https://media.giphy.com/avatars/default2/80h.gif"
                                 alt=""
-                                className="w-8 rounded-r"
+                                className="w-8 rounded-l"
                             />
+                            <div className="px-6 pt-1 bg-gray-700 rounded-r cursor-pointer h-9">
+                                <Link to="/favourites" className="">
+                                    Favourites
+                                </Link>
+                            </div>
                         </div>
                     )}
 
                     {/* Minibar Icon  */}
                     <button>
                         <HiMiniBars3BottomRight
-                            className="block text-sky-400 lg:hidden"
+                            className="block ml-2 text-sky-400 lg:hidden"
                             size={30}
                         />
                     </button>
                 </div>
             </div>
+
+            {/* search */}
+            <Search />
         </nav>
     );
 };

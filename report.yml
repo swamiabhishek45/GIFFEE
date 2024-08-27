@@ -1,0 +1,18 @@
+step 1: Setup New React JS App
+step 2: Hostinger Account Setup
+step 3: Installing Tailwind CSS
+step 4: Defining the Routes -- react-router-dom
+step 5: Building Header -- /components/Header.jsx
+step 6: State Management using Context API -- createContext();
+step 7: Using GIPHY API -- API Key -- .env
+step 8: Rendering GIF Categories
+step 9: Building Trending GIFs Page
+step 10: Filter GIFs Toggle
+step 11: GIFs Search Bar
+step 12: Building Search Page
+step 13: Building Categories Page
+step 14: Building GIF Page
+step 15: Related GIFs
+step 16: Add to Favorite Logic
+step 17: Building Favorite GIFs Page
+step 18: Hosting Our GIPHY Clone
