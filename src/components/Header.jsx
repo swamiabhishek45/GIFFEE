@@ -64,9 +64,14 @@ const Header = () => {
                                 {categories.map((category) => {
                                     return (
                                         <Link
+                                            onClick={() =>
+                                                setShowCategories(
+                                                    !showCategories
+                                                )
+                                            }
                                             key={category.name}
                                             to={`/${category.name_encoded}`}
-                                            className=" p-2 font-bold hover:bg-gray-700 rounded-md"
+                                            className=" p-2 font-bold hover:underline rounded-md"
                                         >
                                             {category.name}
                                         </Link>
