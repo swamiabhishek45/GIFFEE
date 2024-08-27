@@ -3,11 +3,21 @@ step 2: Hostinger Account Setup
 step 3: Installing Tailwind CSS
 step 4: Defining the Routes -- react-router-dom
 step 5: Building Header -- /components/Header.jsx
-step 6: State Management using Context API -- createContext();
+    - logo, logo name
+    - favourite button
+    - map categories
+    - Bar Icon for small devices
+    - Build SearchGIFs.jsx component
+
+step 6: State Management using Context API
+    - createContext();
+    - contextProvider
+    - useContext();
+
 step 7: Using GIPHY API -- API Key -- .env
-step 8: Rendering GIF Categories
-step 9: Building Trending GIFs Page
-step 10: Filter GIFs Toggle
+step 8: Rendering GIF Categories -- gifs.slice(0,5).map();
+step 9: Building Trending GIFs Page -- /pages/Home.jsx
+step 10: Filter GIFs Toggle 
 step 11: GIFs Search Bar
 step 12: Building Search Page
 step 13: Building Categories Page

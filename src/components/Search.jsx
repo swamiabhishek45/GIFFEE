@@ -47,7 +47,7 @@ const Search = () => {
                 onClick={searchGIFs}
                 className="bg-gradient-to-tr from-pink-600 to-orange-400 rounded-r-md w-14 flex items-center justify-center"
             >
-                <HiMagnifyingGlass size={35} className="-scale-x-100" />
+                <HiMagnifyingGlass size={35} className="" />
             </button>
         </div>
     );

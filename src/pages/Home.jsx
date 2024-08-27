@@ -14,7 +14,7 @@ const Home = () => {
         });
         setGifs(data);
     };
-    console.log(gif);
+    // console.log(gif);
 
     useEffect(() => {
         fetchTrendingGIFs();
