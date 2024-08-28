@@ -3,7 +3,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const FollowOn = () => {
     return (
-        <div className="flex flex-col gap-3 pt-3 mb-8">
+        <div className="flex flex-col gap-3 my-10">
             <span className="font-bold">Follow on:</span>
             <div className="flex gap-4 pt-3">
                 <a href="https://github.com/swamiabhishek45" target="_blank">

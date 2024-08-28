@@ -29,7 +29,7 @@ const Search = () => {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
                 className="w-full text-xl text-black rounded-l-md pl-4 pr-14 py-5 outline-none"
-                placeholder="Search your GIFs here..."
+                placeholder="Search all the GIFs and Stickers"
             />
 
             {/* clear button  */}

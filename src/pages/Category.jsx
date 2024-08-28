@@ -33,9 +33,10 @@ const Category = () => {
                     {results.length > 0 && (
                         <Gif gif={results[0]} hover={false} />
                     )}
-                    <span className="text-gray-400 text-sm py-2">
+                    <span className="text-gray-400 text-sm py-2 ">
                         Don't tell it to me, GIF it to me!
                     </span>
+                    <hr className="mt-10"/>
                     <FollowOn />
                     <hr />
                 </div>
