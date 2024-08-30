@@ -47,7 +47,9 @@ const SingleGIF = () => {
         fetchGif();
     }, []);
 
+    // console.log(gf);
     return (
+        
         <div className="grid grid-cols-4 my-10 gap-4">
             {/* sidebar */}
             <div className="hidden sm:block">
@@ -59,7 +61,7 @@ const SingleGIF = () => {
                                 alt={gif?.user?.display_name}
                                 className="h-14"
                             />
-                            <div className="px-2">
+                            <div className="">
                                 <div className="font-bold">
                                     {gif?.user.display_name}
                                 </div>
@@ -139,13 +141,33 @@ const SingleGIF = () => {
                                     @{gif?.user?.username}
                                 </div>
                             </div>
-
-                            <button
-                                className="ml-auto"
-                                //    onClick={shareGif}
-                            >
-                                <FaPaperPlane size={25} />
-                            </button>
+                            <div className="ml-auto flex gap-4">
+                                <button
+                                    onClick={() => addToFavorites(gif.id)}
+                                    className="flex gap-5 items-center font-bold text-lg"
+                                >
+                                    <HiMiniHeart
+                                        size={30}
+                                        className={`${
+                                            favorites.includes(gif.id)
+                                                ? "text-red-500"
+                                                : ""
+                                        }`}
+                                    />
+                                </button>
+                                <button
+                                    onClick={shareGif}
+                                    className="flex gap-5 items-center font-bold text-lg"
+                                >
+                                    <FaPaperPlane size={25} />
+                                </button>
+                                <button
+                                    onClick={EmbedGif}
+                                    className="flex gap-5 items-center font-bold text-lg"
+                                >
+                                    <IoCodeSharp size={30} />
+                                </button>
+                            </div>
                         </div>
                     </div>
                     {/* favourite / share / embeded */}
@@ -168,7 +190,7 @@ const SingleGIF = () => {
                             onClick={shareGif}
                             className="flex gap-5 items-center font-bold text-lg"
                         >
-                            <FaPaperPlane size={30} />
+                            <FaPaperPlane size={25} />
                             Share
                         </button>
                         <button
@@ -180,7 +202,7 @@ const SingleGIF = () => {
                         </button>
                     </div>
                 </div>
-                <div>
+                <div className="my-2">
                     <span className="font-bold text-gray-400">
                         Related GIFs
                     </span>

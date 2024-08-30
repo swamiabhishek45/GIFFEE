@@ -55,7 +55,7 @@ const Header = () => {
                     </button>
 
                     {showCategories && (
-                        <div className="absolute right-0 z-20 w-full px-10 top-14 py-9 gradient">
+                        <div className="absolute right-0 z-20 w-full px-10 top-10 sm:top-14 py-9 gradient opacity-0 animate-fadeIn transition-opacity duration-300">
                             <span className="text-3xl font-extrabold">
                                 Categories
                             </span>
@@ -82,7 +82,7 @@ const Header = () => {
                     )}
 
                     {/* Favourite Button  */}
-                    {favorites.length >= 0 && (
+                    {favorites.length > 0 && (
                         <div className="flex">
                             <img
                                 src="https://media.giphy.com/avatars/default2/80h.gif"
@@ -98,7 +98,7 @@ const Header = () => {
                     )}
 
                     {/* Minibar Icon  */}
-                    <button>
+                    <button onClick={() => setShowCategories(!showCategories)}>
                         <HiMiniBars3BottomRight
                             className="block ml-2 text-sky-400 lg:hidden"
                             size={30}
@@ -115,5 +115,3 @@ const Header = () => {
 
 export default Header;
 
-// https://giphy.com/static/img/artist-banner.webp
-// https://media.giphy.com/avatars/default2/80h.gif

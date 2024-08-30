@@ -14,15 +14,18 @@ const Favourite = () => {
     useEffect(() => {
         fetchFavoritesGIFs();
     }, []);
+
     return (
         <div className="mt-2">
             <span className="flex justify-center font-semibold text-3xl">
                 My Favorites GIFs
             </span>
             <div className="columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-2 mt-2">
-                {favoritesGIFs.map((favGIF) => {
+                {favoritesGIFs ? (favoritesGIFs.map((favGIF) => {
                     return <Gif key={favGIF.id} gif={favGIF} />;
-                })}
+                })) : (
+                    <h1>No favorite GIFs to show</h1>
+                )}
             </div>
         </div>
     );
